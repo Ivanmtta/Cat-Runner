@@ -62,7 +62,7 @@ var building2 = {
 
 var fish = {
 	x: 600,
-	y: 100,
+	y: 75,
 	size: 32,
 	xSpeed: 2,
 	ySpeed: 4,
@@ -122,7 +122,7 @@ function drawDogs(){
 }
 
 function updateFish(){
-	if(fish.y <= 100){
+	if(fish.y <= 75){
 		fish.ySpeed = 4;
 	}
 	if(fish.y >= 200){

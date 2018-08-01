@@ -60,6 +60,15 @@ var building2 = {
 	image: new Image()
 };
 
+var fish = {
+	x: 600,
+	y: 100,
+	size: 32,
+	xSpeed: 2,
+	ySpeed: 4,
+	image: new Image()
+};
+
 function dog(x){
 	this.x = x;
 	this.y = 286;
@@ -73,12 +82,14 @@ backImage.src = "Graphics/background.png";
 player.light.src = "Graphics/light.png";
 building1.image.src = "Graphics/building1.png";
 building2.image.src = "Graphics/building2.png";
+fish.image.src = "Graphics/fish.png";
 
 function update(){
 	draw();
 	if(player.alive){
 		updatePlayer();
 		updateBuilding();
+		updateFish();
 		updateDogs();
 		checkBottomCollision();
 		checkPlayerCollision();
@@ -91,6 +102,7 @@ function draw(){
 	graphics.drawImage(backImage, 0, 0);
 	graphics.drawImage(building1.image, building1.x, building1.y);
 	graphics.drawImage(building2.image, building2.x, building2.y);
+	graphics.drawImage(fish.image, fish.x, fish.y);
 	graphics.drawImage(player.light, player.x - 15, player.y - 15);
 	graphics.drawImage(player.image, player.x, player.y);
 	graphics.font = "bold 40px Helvetica";
@@ -107,6 +119,20 @@ function drawDogs(){
 	for(i = 0; i < dogs.length; i++){
 		graphics.drawImage(dogs[i].image, dogs[i].x, dogs[i].y);
 	}
+}
+
+function updateFish(){
+	if(fish.y <= 100){
+		fish.ySpeed = 4;
+	}
+	if(fish.y >= 200){
+		fish.ySpeed = - 4;
+	}
+	if(fish.x + fish.size < 0){
+		fish.x = 600;
+	}
+	fish.x -= fish.xSpeed;
+	fish.y += fish.ySpeed;
 }
 
 function checkBottomCollision(){
@@ -128,6 +154,13 @@ function checkPlayerCollision(){
 			testDog.y + testDog.size - reduction > player.y + reduction){
 			player.alive = false;
 		}
+	}
+	if(fish.x + reduction < player.x + player.size - reduction &&
+		fish.x + fish.size - reduction > player.x + reduction &&
+		fish.y + reduction < player.y + player.size - reduction &&
+		fish.y + fish.size - reduction > player.y + reduction){
+		fish.x = 1000;
+		points += 10;
 	}
 }
 
@@ -160,7 +193,6 @@ function updateBuilding(){
 	building2.x -= building2.speed;
 }
 
-var once = true;
 function updateDogs(){
 	if(dogs.length > 0){
 		if(dogs[dogs.length - 1].x + dogs[dogs.length - 1].size < 0){
@@ -242,6 +274,7 @@ function manageDogAnimation(){
 
 function restartGame(){
 	player.alive = true;
+	fish.x = 600;
 	points = 0;
 	dogs = [];
 }

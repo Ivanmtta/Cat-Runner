@@ -11,15 +11,15 @@ var points = 0;
 var scoreTime = 0;
 var firstDog = false;
 var playerAnimation = ["Graphics/player1.png", 
-		       "Graphics/player2.png", 
-		       "Graphics/player3.png", 
-		       "Graphics/player4.png", 
-		       "Graphics/player5.png"];
+						"Graphics/player2.png", 
+						"Graphics/player3.png", 
+						"Graphics/player4.png", 
+						"Graphics/player5.png"];
 var dogAnimation = ["Graphics/dog1.png", 
-		    "Graphics/dog2.png", 
-		    "Graphics/dog3.png", 
-		    "Graphics/dog4.png", 
-		    "Graphics/dog5.png"];
+					"Graphics/dog2.png", 
+					"Graphics/dog3.png", 
+					"Graphics/dog4.png", 
+					"Graphics/dog5.png"];
 var animationTime = 0;
 var playerFrame = 0;
 var dogFrame = 0;

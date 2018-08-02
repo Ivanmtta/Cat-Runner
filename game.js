@@ -1,8 +1,7 @@
 var frame = document.getElementById("frame");
 var graphics = frame.getContext("2d");
 
-document.addEventListener("click", click);
-document.addEventListener("keypress", click);
+document.addEventListener("mousedown", click);
 
 const FPS = 60;
 const JUMPSPACE = 20;

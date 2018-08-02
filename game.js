@@ -105,10 +105,7 @@ function draw(){
 	graphics.drawImage(fish.image, fish.x, fish.y);
 	graphics.drawImage(player.light, player.x - 15, player.y - 15);
 	graphics.drawImage(player.image, player.x, player.y);
-	// graphics.font = "bold 40px Helvetica";
-	// graphics.fillStyle = "white";
-	// graphics.textAlign = "center";
-	// graphics.fillText(points, frame.width / 2, 100);
+	graphics.font = "bold 40px Helvetica";
 	drawDogs();
 	if(!player.alive){
 		graphics.drawImage(replayImage, 0, 0);

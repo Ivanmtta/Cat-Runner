@@ -215,29 +215,25 @@ function updateDogs(){
 		if(dogs[i].x + dogs[i].size < 0){
 			dogs.splice(i, 1);
 		}
-		else{
-			dogs[i].x -= dogs[i].speed;
-		}
+		dogs[i].x -= dogs[i].speed;
 	}
 }
 
 function generatePacksOfDogs(){
 	var numDogs = Math.floor(Math.random() * 3);
-	for(var i = 0; i < 2; i++){
-		switch(numDogs){
-			case 0:
-				dogs.push(new dog(frame.width));
-				break;
-			case 1:
-				dogs.push(new dog(frame.width));
-				dogs.push(new dog(frame.width + 70));
-				break;
-			case 2:
-				dogs.push(new dog(frame.width));
-				dogs.push(new dog(frame.width + 70));
-				dogs.push(new dog(frame.width + 140));
-				break;
-		}
+	switch(numDogs){
+		case 0:
+			dogs.push(new dog(frame.width));
+			break;
+		case 1:
+			dogs.push(new dog(frame.width));
+			dogs.push(new dog(frame.width + 70));
+			break;
+		case 2:
+			dogs.push(new dog(frame.width));
+			dogs.push(new dog(frame.width + 70));
+			dogs.push(new dog(frame.width + 140));
+			break;
 	}
 }
 
